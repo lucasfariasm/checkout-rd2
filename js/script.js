@@ -27,11 +27,18 @@ function numeromaximo(e) {
 let senha = document.querySelector ('#senhaUsuario')
 senha.addEventListener('change', tamanhoSenha)
 function tamanhoSenha(e){
-  if (senha.value.length < 7) {
+  if (senha.value.length < 7 && senha.value != "") {
     alert('A senha deve ter no mínimo 6 caracteres')
   }
 }
 // 4. Campo Confirme sua senha deve ser igual ao de Senha
+let confirmarSenha = document.querySelector('#confirmarSenhaUsuario')
+confirmarSenha.addEventListener('change', verificar)
+function verificar(e){
+  if (confirmarSenha.value !== senha.value){
+      alert ('As senhas têm que ser iguais');
+    }
+}
 
 // Validações Sessão Entrega:
 // 1. Campo de cep deve ter apenas números
