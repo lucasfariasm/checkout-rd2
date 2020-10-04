@@ -65,10 +65,16 @@ function limparCampo(event){
   }
 }
 
-
-
 // Validações Sessão Pagamento:
 // 1. Campo número do cartão deve ter apenas números
+let inputCartao = document.querySelector('#cartao')
+inputCartao.addEventListener('keypress', somenteNumeros)
+inputCartao.addEventListener('change', limparCampo)
+function limparCampo(event){
+  if (somenteNumeros){
+    inputCartao.value = "";
+  }
+}
 // 2. A validade do cartão de ser maior que o mês atual;
 // 3. O campo CVV deve conter apenas 3 dígitos
 // 4. O campo de CPF não pode estar vazio.
