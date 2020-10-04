@@ -42,6 +42,29 @@ function verificar(e){
 
 // Validações Sessão Entrega:
 // 1. Campo de cep deve ter apenas números
+let inputCep = document.querySelector('#cepUsuario')
+inputCep.addEventListener('keypress', somenteNumeros)
+function somenteNumeros(e) {
+  let charCode = e.charCode ? e.charCode : e.keyCode;
+  // charCode 8 = backspace   
+  // charCode 9 = tab
+  if (charCode != 8 && charCode != 9) {
+      // charCode 48 equivale a 0   
+      // charCode 57 equivale a 9
+      if (charCode < 48 || charCode > 57) {
+        alert('Somente números neste campo');
+          // return false;
+      }
+  }
+  
+}
+inputCep.addEventListener('change', limparCampo)
+function limparCampo(event){
+  if (somenteNumeros){
+    inputCep.value = "";
+  }
+}
+
 
 
 // Validações Sessão Pagamento:
