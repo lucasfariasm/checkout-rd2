@@ -24,6 +24,13 @@ function numeromaximo(e) {
   }
 }
 // 3. Campo senha deve ser maior que 6 caracteres
+let senha = document.querySelector ('#senhaUsuario')
+senha.addEventListener('change', tamanhoSenha)
+function tamanhoSenha(e){
+  if (senha.value.length < 7) {
+    alert('A senha deve ter no mínimo 6 caracteres')
+  }
+}
 // 4. Campo Confirme sua senha deve ser igual ao de Senha
 
 // Validações Sessão Entrega:
