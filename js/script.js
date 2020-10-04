@@ -16,6 +16,13 @@ function naoNumeros(e) {
   }
 }
 // 2. Campo CPF não pode ser maior que 11 dígitos.
+let cpf = document.querySelector('#cpfUsuario')
+cpf.addEventListener('change', numeromaximo)
+function numeromaximo(e) {
+  if(cpf.value.length !== 11 && cpf.value != "") {
+    alert ('O campo informado não possui 11 dígitos')
+  }
+}
 // 3. Campo senha deve ser maior que 6 caracteres
 // 4. Campo Confirme sua senha deve ser igual ao de Senha
 
