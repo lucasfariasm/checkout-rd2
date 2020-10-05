@@ -53,16 +53,9 @@ function somenteNumeros(e) {
       // charCode 57 equivale a 9
       if (charCode < 48 || charCode > 57) {
         alert('Somente números neste campo');
-          // return false;
       }
   }
   
-}
-inputCep.addEventListener('change', limparCep)
-function limparCep(event){
-  if (somenteNumeros){
-    inputCep.value = "";
-  }
 }
 
 // Validações Sessão Pagamento:
@@ -70,11 +63,7 @@ function limparCep(event){
 let inputCartao = document.querySelector('#cartao')
 inputCartao.addEventListener('keypress', somenteNumeros)
 inputCartao.addEventListener('change', limparCartao)
-function limparCartao(event){
-  if (somenteNumeros){
-    inputCartao.value = "";
-  }
-}
+
 // 2. A validade do cartão de ser maior que o mês atual;
 // let validade = document.querySelector('#validadeCartao');
 
@@ -94,4 +83,21 @@ let nomeTitular = document.querySelector('#nomeTitular')
 nomeTitular.addEventListener('keypress', naoNumeros)
 
 //Uso de API para preenchimento automático
+let inputEndereco = document.querySelector('#enderecoUsuario')
+let inputBairro = document.querySelector('#bairroUsuario')
+let inputCidade = document.querySelector('#cidadeUsuario')
 
+inputCep.addEventListener('keyup', apiCEP)
+
+async function apiCEP(e){
+  if(this.value.length == 8) {
+    //async await
+    let resposta = await fetch("https://brasilapi.com.br/api/cep/v1/" + this.value) ;
+    let cep = await resposta.json();
+    console.log(cep);
+    //Preenchimento automático
+    inputEndereco.value = cep.street;
+    inputBairro.value = cep.neighborhood;
+    inputCidade.value = cep.city;
+  }
+}
