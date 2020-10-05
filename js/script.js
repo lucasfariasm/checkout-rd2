@@ -58,8 +58,8 @@ function somenteNumeros(e) {
   }
   
 }
-inputCep.addEventListener('change', limparCampo)
-function limparCampo(event){
+inputCep.addEventListener('change', limparCep)
+function limparCep(event){
   if (somenteNumeros){
     inputCep.value = "";
   }
@@ -69,16 +69,29 @@ function limparCampo(event){
 // 1. Campo número do cartão deve ter apenas números
 let inputCartao = document.querySelector('#cartao')
 inputCartao.addEventListener('keypress', somenteNumeros)
-inputCartao.addEventListener('change', limparCampo)
-function limparCampo(event){
+inputCartao.addEventListener('change', limparCartao)
+function limparCartao(event){
   if (somenteNumeros){
     inputCartao.value = "";
   }
 }
 // 2. A validade do cartão de ser maior que o mês atual;
+// let validade = document.querySelector('#validadeCartao');
+
 // 3. O campo CVV deve conter apenas 3 dígitos
+let cvv = document.querySelector('#CVVCartao')
+cvv.addEventListener('change', tresDigitos)
+
+function tresDigitos(e){
+  if (cvv.value.length !== 3 && cvv.value != ""){
+    cvv.value = "";
+    alert('Deve possuir 3 dígitos')
+  }
+}
 // 4. O campo de CPF não pode estar vazio.
 // 5. O campo Titular não pode conter números
+let nomeTitular = document.querySelector('#nomeTitular')
+nomeTitular.addEventListener('keypress', naoNumeros)
 
 //Uso de API para preenchimento automático
 
