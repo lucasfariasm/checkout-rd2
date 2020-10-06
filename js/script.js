@@ -78,6 +78,8 @@ function tresDigitos(e){
   }
 }
 // 4. O campo de CPF não pode estar vazio.
+
+
 // 5. O campo Titular não pode conter números
 let nomeTitular = document.querySelector('#nomeTitular')
 nomeTitular.addEventListener('keypress', naoNumeros)
