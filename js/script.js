@@ -68,12 +68,12 @@ inputCartao.addEventListener('change', limparCartao)
 // let validade = document.querySelector('#validadeCartao');
 
 // 3. O campo CVV deve conter apenas 3 dígitos
-let cvv = document.querySelector('#CVVCartao')
-cvv.addEventListener('change', tresDigitos)
+let codigo = document.querySelector('#CVVCartao')
+codigo.addEventListener('change', tresDigitos)
 
 function tresDigitos(e){
-  if (cvv.value.length !== 3 && cvv.value != ""){
-    cvv.value = "";
+  if (codigo.value.length !== 3 && codigo.value != ""){
+    codigo.value = "";
     alert('Deve possuir 3 dígitos')
   }
 }
